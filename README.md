@@ -33,7 +33,7 @@ Uma aplicação de lista de tarefas (ToDo List) que permite aos usuários criar,
 - **Node.js**: Ambiente de execução JavaScript no lado do servidor.
 - **Express.js**: Framework web para Node.js.
 - **Sequelize**: ORM para modelagem do banco de dados.
-- **SQLite**: Banco de dados relacional leve e fácil de configurar.
+- **Mysql**: Banco de dados relacional popular e Open Source.
 - **Cors**: Middleware para habilitar CORS.
 
 ## Pré-requisitos
@@ -43,13 +43,6 @@ Uma aplicação de lista de tarefas (ToDo List) que permite aos usuários criar,
 - **Git** para controle de versão.
 
 ## Instalação
-
-### Clonar o Repositório
-
-```bash
-git clone https://github.com/seu-usuario/nome-do-repositorio.git
-cd nome-do-repositorio
-```
 
 ### Configuração do Backend
 
@@ -67,8 +60,7 @@ cd nome-do-repositorio
 
 3. Configure o banco de dados:
 
-   - Se estiver usando **SQLite**, nenhuma configuração adicional é necessária.
-   - Se optar por outro banco de dados (MySQL, PostgreSQL), configure as credenciais no arquivo `config/database.js` ou em variáveis de ambiente.
+   - O projeto utiliza o **MySQL** como banco de dados, gerenciado por `Sequelize` como ORM, configure as credenciais no arquivo `config/database.js` ou em variáveis de ambiente.
 
 4. Execute as migrações (se aplicável):
 
@@ -169,51 +161,3 @@ backend/
 - `PUT /tasks/:id`: Atualiza uma tarefa existente.
 - `DELETE /tasks/:id`: Exclui uma tarefa.
 - `PATCH /tasks/:id/complete`: Alterna o status de uma tarefa entre pendente e concluída.
-
-## Contribuição
-
-Contribuições são bem-vindas! Se você deseja contribuir para este projeto, siga os passos abaixo:
-
-1. Faça um fork do repositório.
-2. Crie uma nova branch para sua feature (`git checkout -b feature/nova-feature`).
-3. Faça commit das suas alterações (`git commit -m 'Adiciona nova feature'`).
-4. Faça push para a branch (`git push origin feature/nova-feature`).
-5. Abra um Pull Request.
-
-## Licença
-
-Este projeto está sob a licença MIT. Consulte o arquivo [LICENSE](LICENSE) para mais detalhes.
-
-## Contato
-
-- **Seu Nome**
-- **Email:** seuemail@example.com
-- **GitHub:** [seu-usuario](https://github.com/seu-usuario)
-
----
-
-## Notas Adicionais
-
-### Configuração do Axios
-
-No arquivo `src/api/axios.js`, configure a base URL para o backend:
-
-```javascript
-import axios from 'axios';
-
-const api = axios.create({
-  baseURL: 'http://localhost:3000', // Certifique-se de que esta URL corresponde ao backend
-});
-
-export default api;
-```
-
-### Variáveis de Ambiente
-
-Se você quiser utilizar variáveis de ambiente para configurar URLs ou outras informações sensíveis, crie um arquivo `.env` na raiz do projeto e utilize pacotes como `dotenv` no backend e `vite` no frontend para carregá-las.
-
----
-
-## Agradecimentos
-
-Agradecemos a todos que contribuíram para este projeto e tornaram possível o seu desenvolvimento.
